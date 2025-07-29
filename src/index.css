@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Impact";
+  src: url("./assets/fonts/Impact.woff");
+}
+
+@font-face {
+  font-family: "Imprint";
+  src: url("./assets/fonts/imprint-mt-shadow.ttf");
+}
+
+@theme inline{
+  --color-primary: #0F355C;
+  --color-primary-dark: #0061728;
+  --color-primary-ligth: #2063A7;
+  --color-secundary: #CB9B17;
+  --color-secundary-dark: #B7842F;
+  --color-secundary-ligth: #E1B366;
+  --color-gray-dark:#191919;
+  --color-gray-ligth:#C5C5C5;
+  --font-impact: "Impact";
+  --font-imprint: "Imprint";
+}
+
+:root {
+  --impact: "Impact";
+  --imprint: "Imprint";
+  --primary: #0F355C;
+  --primary-dark: #0061728;
+  --primary-ligth: #2063A7;
+  --secundary: #CB9B17;
+  --secundary-dark: #B7842F;
+  --secundary-ligth: #E1B366;
+  --gray-dark:#191919;
+  --gray-ligth:#C5C5C5;
+  /* ... */
+}
+
+/* Container com rolagem */
+.scroll-container {
+  overflow-y: scroll;
+}
+
+/* Barra inteira */
+.scroll-container::-webkit-scrollbar, html::-webkit-scrollbar {
+  width: 10px; /* largura vertical */
+  height: 8px; /* altura horizontal */
+}
+
+/* Fundo da barra */
+.scroll-container::-webkit-scrollbar-track, html::-webkit-scrollbar-track {
+  background: #1e1e1e; /* ou transparente */
+  border-radius: 10px;
+}
+
+/* Scroll (a parte que se move) */
+.scroll-container::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 10px;
+  border: 2px solid #1e1e1e;
+}
+
+/* Hover no thumb */
+.scroll-container::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
+  background: #00cc66;
+}

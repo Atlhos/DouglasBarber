@@ -1,0 +1,15 @@
+#app{
+  background-color: var(--gray-dark);
+  color: var(--gray-ligth);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media (width >= 64rem){
+  .bg-img{
+    background-image: url("./assets/bg-three.svg");
+    background-size: cover;
+    background-position: center left;
+    background-repeat: no-repeat
+  }
+}

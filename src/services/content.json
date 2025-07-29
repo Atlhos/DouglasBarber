@@ -1,0 +1,96 @@
+{
+    "barber-name":"Londres",
+    "start-slogan":"A sua barbearia",
+    "start-description":"Tradição, estilo e atitude em cada corte. Viva experiência Londres",
+    "schedule-button":"Agendar um horário",
+
+
+    "carousel-images":[
+        "./public/carousel/1.webp",
+        "./public/carousel/2.webp",
+        "./public/carousel/3.webp",
+        "./public/carousel/4.webp",
+        "./public/carousel/5.webp",
+        "./public/carousel/6.webp",
+        "./public/carousel/7.webp"
+    ],
+
+    "about-title":"Sobre nós",
+    "about-slogan":"Bem-vindo à melhor barbearia de perus",
+    "about-description":"Na Barbearia Londes, tradição e modernidade se encontram para oferecer uma experiência única aos nossos clientes. Fundada com a missão de resgatar o verdadeiro espírito do cuidado masculino, a Londes é muito mais do que um simples lugar para cortar cabelo — é um espaço onde estilo, atitude e bem-estar caminham juntos. <br/><br/>Localizada no coração de Perus, a Londes traz um ambiente acolhedor, inspirado nas clássicas barbearias britânicas, com cadeiras de couro, decoração vintage e uma equipe de barbeiros apaixonados pelo que fazem. Cada corte, cada barba feita, é tratado como uma obra de arte, com atenção aos detalhes e respeito pelo estilo pessoal de cada cliente.",
+
+
+    "name":"Douglas Sobrenome",
+    "profissão":"Barbeiro profissioanal",
+    "whatsapp":"(99) 99999-9999",
+    "phone":"(99) 9999-9999",
+    "instagram":"ferndsgabriel",
+    "fair-price":"Preços justos",
+
+    "haircut-title":"Cortes de cabelo",
+    "haircut-description":"Preço dos cortes",
+    "haircut-list":[
+        {
+            "name":"Corte 1",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 2",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 3",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 4",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 5",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 6",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 7",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 8",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 9",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 10",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 11",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 12",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 13",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 14",
+            "price":"R$ 50,00"
+        },
+        {
+            "name":"Corte 15",
+            "price":"R$ 50,00"
+        }
+    ]
+    
+
+}
