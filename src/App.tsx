@@ -5,7 +5,7 @@ import RoutesApp from './routesApp'
 function App() {
   return (
     <div id="app" className='scroll-container'>
-      <BrowserRouter>
+      <BrowserRouter basename='/DouglasBarber/'>
         <RoutesApp>
           
         </RoutesApp>
