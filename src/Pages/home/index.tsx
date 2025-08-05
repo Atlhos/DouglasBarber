@@ -16,8 +16,10 @@ import { MdOutlineWhatsapp} from "react-icons/md"
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 
 function HomePage(){
 
@@ -74,12 +76,72 @@ function HomePage(){
         };
     }, []);
 
+    useLayoutEffect(()=>{
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to('#start-date',{
+            opacity:1,
+            x:0,
+            transition:'1s'
+        });
+
+        gsap.to('#start-bg',{
+            opacity:0.5,
+            transition:'2s'
+        });
+
+        gsap.to(".animateAbout",{
+            opacity:1,
+            y:0,
+            scrollTrigger:{
+                trigger:"#about",
+                scrub:true,
+                start:"top 500px",
+                end:"bottom 400px"
+            },
+            
+        });
+
+        gsap.to("#pricesLeft, #pricesRight",{
+            opacity:1,
+            x:0,
+            scrollTrigger:{
+                trigger:"#prices",
+                scrub:true,
+                end:"bottom 600px"
+                
+            }
+        });
+
+        gsap.to("#cuts",{
+            opacity:1,
+            transition:'2s',
+            scrollTrigger:{
+                trigger:"#portfolio",
+                scrub:true,
+            }
+        })
+
+        return () => {
+            gsap.killTweensOf([
+                '#start-date',
+                '#start-bg',
+                '.animateAbout',
+                '#pricesLeft',
+                '#pricesRight',
+                '#cuts'
+            ]);
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    },[])
+
     if (!data) return null;
 
     return(
         <>  
             <Header />
-            <main className="w-full bg-gray-dark">
+            <main className="w-full bg-gray-dark overflow-hidden">
 
                 {/* start */}
                 <section id="" style={{
@@ -92,14 +154,16 @@ function HomePage(){
 
                     <div className="w-full h-full m-auto max-w-6xl flex items-center justify-center min-h-dvh lg:justify-end p-8">
                         
-                        <span className="flex-1 h-full absolute top-0 left-0 w-1/2 hidden lg:block opacity-50" style={{
+                        <span id="start-bg" 
+                        className="flex-1 h-full absolute top-0 left-0 w-1/2 hidden lg:block opacity-0" style={{
                             backgroundImage: `url(${bgtwo})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center right",
                             backgroundRepeat: "no-repeat"
                         }}/>
 
-                        <article className="flex flex-col max-w-xs text-center items-center justify-between gap-4 flex-1">
+                        <article id='start-date' 
+                        className="flex flex-col max-w-xs text-center items-center justify-between gap-4 flex-1 translate-x-96 opacity-0">
                             <div className="w-full">
                                 <img src={yellowMustache} alt="mustache" />
                             </div>
@@ -139,11 +203,13 @@ function HomePage(){
                         <h1 className="self-start text-2xl font-bold text-secundary-ligth">{data["about-title"]}</h1>
                         
                         <article className="w-full flex flex-col gap-6 lg:flex-row lg:justify-between">
-                            <div className="w-full max-w-xl flex-1">
+                            <div className="w-full max-w-xl flex-1 animateAbout translate-y-96 opacity-20
+                            ">
                                 <p dangerouslySetInnerHTML={{ __html:data["about-description"] }}/>
                             </div>
 
-                            <div className="w-full flex-1">
+                            <div 
+                            className="w-full flex-1 animateAbout translate-y-96 opacity-20">
                                 <img src={Douglas} alt="Douglas" className="lg:float-end aspect-[3/4]  object-cover rounded-sm"/>
                             </div>
                         </article>
@@ -154,7 +220,7 @@ function HomePage(){
                 <section id="prices">
                     <div className="w-full max-w-7xl p-8 mx-auto flex flex-col gap-12 md:flex-row md:justify-between">
                         
-                        <article>
+                        <article id='pricesLeft' className="-translate-x-96 opacity-0">
 
                             <div className="flex flex-col gap-2 pb-2 border-b-3 border-secundary w-fit bg-blac">
                                 <h2 className="text-3xl uppercase font-impact text-white">{data.name}</h2>
@@ -202,7 +268,8 @@ function HomePage(){
                         </article>
 
 
-                        <article className="flex flex-col gap-8 md:items-end">
+                        <article id="pricesRight" 
+                        className="flex flex-col gap-8 md:items-end translate-x-96 opacity-0">
                             <div className="flex flex-col gap-2 pb-2 border-b-3 border-secundary w-fit md:text-end">
                                 <h2 className="text-2xl font-impact text-white">{data["haircut-title"]}</h2>
                                 <h3>{data["haircut-description"]}</h3>
@@ -239,10 +306,11 @@ function HomePage(){
                         }}
                         />
                     </div>
-                    <div className="w-full max-w-7xl p-8 py-16 mx-auto flex flex-col gap-12 md:flex-row md:justify-between">
-                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6 mx-auto">
+                    <div id="cuts" 
+                    className="w-full max-w-7xl p-8 py-16 mx-auto flex flex-col gap-12 md:flex-row md:justify-between opacity-10">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
                             {data["haircut-images"].length > 0 && data["haircut-images"].map((item, index) => (
-                                <div key={`${item}-${index}`} className="w-full aspect-[3/4] border-4 border-black hover:scale-125 hover:border-white duration-300 transition-all">
+                                <div key={`${item}-${index}`} className="w-full aspect-[3/4] border-4 border-black bg-orange-200 hover:scale-125 hover:border-white duration-300 transition-all">
                                     <img src={item} alt={item} className="w-full h-full object-cover"/>
                                 </div>
                             ))}
