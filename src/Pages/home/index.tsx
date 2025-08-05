@@ -23,6 +23,15 @@ function HomePage(){
 
     const data = (datajson ? datajson : null);
     const [width, setWidth] = useState<number>(window.innerWidth);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setPosition({ x: e.clientX, y: e.clientY });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     const responsiveBrands = {
         desktop: {
@@ -203,6 +212,30 @@ function HomePage(){
                             </div>
                         </article>
 
+                    </div>
+                </section>
+
+                {/* cuts */}
+                <section className="relative">
+                    <div className="absolute inset-0 pointer-events-none hidden lg:block">
+                        <div
+                        className="w-full h-full"
+                        style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            maskImage: `radial-gradient(circle 300px at ${position.x}px ${position.y}px, transparent 0%, black 100%)`,
+                            WebkitMaskImage: `radial-gradient(circle 300px at ${position.x}px ${position.y}px, transparent 0%, black 100%)`,
+                            transition: 'mask-position 0.05s ease'
+                        }}
+                        />
+                    </div>
+                    <div className="w-full max-w-7xl p-8 mx-auto flex flex-col gap-12 md:flex-row md:justify-between">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+                            {data["haircut-images"].length > 0 && data["haircut-images"].map((item, index) => (
+                                <div key={`${item}-${index}`} className="w-full aspect-[3/4]">
+                                    <img src={item} alt={item} className="w-full h-full object-cover"/>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
             </main>

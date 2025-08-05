@@ -7,6 +7,19 @@ import { FaAnglesDown,  FaAnglesUp} from "react-icons/fa6";
 
 function Header(){
     const [isOpen, setIsOpen] = useState(false);
+    
+const navigate = (path: string) => {
+    const element = document.getElementById(path);
+    if (element) {
+        element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        });
+    }
+    setIsOpen(false);
+};
+
+
 
     return(
         <>
@@ -18,16 +31,16 @@ function Header(){
                     <ul className="flex gap-4 justify-between flex-row-reverse">
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#">Início</a>
+                            onClick={() => navigate("home")}>Início</a>
                         </li>
 
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#prices">Preços</a>
+                            onClick={() => navigate("prices")}>Preços</a>
                         </li>
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#testimonials">Depoimentos</a>
+                            onClick={() => navigate("testimonials")}>Depoimentos</a>
                         </li>
                     </ul>
                 </nav>
@@ -46,16 +59,16 @@ function Header(){
                     <ul className="flex gap-3 justify-between">
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#about">Sobre</a>
+                            onClick={() => navigate("about")}>Sobre</a>
                         </li>
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#portfolio">Portfólio</a>
+                            onClick={() => navigate("portfolio")}>Portfólio</a>
                         </li>
 
                         <li>
                             <a className="cursor-pointer hover:text-secundary duration-200 transition-colors" 
-                            href="#wherearewe">Onde Estamos</a>
+                            onClick={() => navigate("wherearewe")}>Onde Estamos</a>
                         </li>
                     </ul>
                 </nav>
@@ -64,37 +77,37 @@ function Header(){
                     <nav className=" bg-secundary w-full rounded-md shadow-lg p-4 text-black font-imprint uppercase">
                         <ul className="min-w-full flex flex-col gap-2 ">
                             <li className="min-w-full flex text-center">
-                                <a href="#"
+                                <a onClick={() => navigate("")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Início
                                 </a>
                             </li>
                             <li className="min-w-full flex text-center">
-                                <a href="#about"
+                                <a onClick={() => navigate("about")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Sobre
                                 </a>
                             </li>
                             <li className="min-w-full flex text-center">
-                                <a href="#prices"
+                                <a onClick={() => navigate("prices")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Preços
                                 </a>
                             </li>
                             <li className="min-w-full flex text-center">
-                                <a href="#portfolio"
+                                <a onClick={() => navigate("portfolio")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Portfólio
                                 </a>
                             </li>
                             <li className="min-w-full flex text-center">
-                                <a href="#testimonials"
+                                <a onClick={() => navigate("testimonials")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Depoimentos
                                 </a>
                             </li>
                             <li className="min-w-full flex text-center">
-                                <a href="wherearewe"
+                                <a onClick={() => navigate("wherearewe")}
                                 className="min-w-full p-2 rounded-md hover:bg-secundary-ligth duration-200 transition-colors cursor-pointer">
                                     Onde Estamos
                                 </a>

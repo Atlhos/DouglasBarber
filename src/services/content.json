@@ -90,6 +90,27 @@
             "name":"Corte 15",
             "price":"R$ 50,00"
         }
+    ],
+
+    "haircut-images":[
+        "./public/haircuts/1.webp",
+        "./public/haircuts/2.webp",
+        "./public/haircuts/3.webp",
+        "./public/haircuts/4.webp",
+        "./public/haircuts/5.webp",
+        "./public/haircuts/6.webp",
+        "./public/haircuts/7.webp",
+        "./public/haircuts/8.webp",
+        "./public/haircuts/9.webp",
+        "./public/haircuts/10.webp",
+        "./public/haircuts/11.webp",
+        "./public/haircuts/12.webp",
+        "./public/haircuts/13.webp",
+        "./public/haircuts/14.webp",
+        "./public/haircuts/15.webp",
+        "./public/haircuts/16.webp",
+        "./public/haircuts/17.webp",
+        "./public/haircuts/18.webp"
     ]
     
 

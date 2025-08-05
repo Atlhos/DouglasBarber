@@ -9,6 +9,9 @@
   font-family: "Imprint";
   src: url("./assets/fonts/imprint-mt-shadow.ttf");
 }
+html {
+  scroll-behavior: smooth;
+}
 
 @theme inline{
   --color-primary: #0F355C;
@@ -37,31 +40,34 @@
   /* ... */
 }
 
-/* Container com rolagem */
-.scroll-container {
-  overflow-y: scroll;
+/* Barra inteira */
+.scroll-container::-webkit-scrollbar, html::-webkit-scrollbar {
+  width: 6px;
+  background-color: black;
+}
+
+/* Scroll  */
+.scroll-container::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+  background: var(--secundary);
+}
+
+/* Hover do scroll */
+.scroll-container::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
+  background: var(--secundary-dark);
 }
 
 /* Barra inteira */
-.scroll-container::-webkit-scrollbar, html::-webkit-scrollbar {
-  width: 10px; /* largura vertical */
-  height: 8px; /* altura horizontal */
+html::-webkit-scrollbar {
+  width: 8px;
+    background: var(--gray-dark);
 }
 
-/* Fundo da barra */
-.scroll-container::-webkit-scrollbar-track, html::-webkit-scrollbar-track {
-  background: #1e1e1e; /* ou transparente */
-  border-radius: 10px;
+/* Scroll  */
+html::-webkit-scrollbar-thumb {
+  background: rgb(88, 88, 88);
 }
 
-/* Scroll (a parte que se move) */
-.scroll-container::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
-  background: #00ff88;
-  border-radius: 10px;
-  border: 2px solid #1e1e1e;
-}
-
-/* Hover no thumb */
-.scroll-container::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
-  background: #00cc66;
+/* Hover do scroll */
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(143, 142, 142);
 }
