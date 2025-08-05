@@ -111,6 +111,43 @@
         "./public/haircuts/16.webp",
         "./public/haircuts/17.webp",
         "./public/haircuts/18.webp"
+    ],
+
+    "testimonials-title":"Depoimentos",
+    "testimonials-description":"O que nossos clientes dizem",
+    "testimonials-list":[
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        },
+        {
+            "name":"Nome Sobrenome",
+            "testimonial":"Atendimento de primeira! Além de sair com o corte perfeito, ainda troquei uma ideia boa com o barbeiro. Voltarei com certeza!"
+        }
     ]
     
 

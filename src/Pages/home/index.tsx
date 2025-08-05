@@ -9,10 +9,10 @@ import pincel from "../../assets/pincel.svg";
 import Header from "../../components/header";
 import Button from "../../components/button";
 
-import { FaWhatsapp, FaInstagram } from "react-icons/fa6";
-import { FaPhoneAlt, FaCheckCircle  } from "react-icons/fa";
-
-
+import {FaInstagram } from "react-icons/fa6";
+import { FaPhoneAlt, FaCheckCircle, FaQuoteRight  } from "react-icons/fa";
+import { IoStarSharp } from "react-icons/io5";
+import { MdOutlineWhatsapp} from "react-icons/md"
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -45,6 +45,17 @@ function HomePage(){
         mobile: {
             breakpoint: { max: 640, min: 0 },
             items:(width / 60)
+        },
+    };
+
+    const responsiveTestimonials = {
+        mobile2: {
+            breakpoint: { max: 9999, min: 560 },
+            items:(2)
+        },
+        mobile: {
+            breakpoint: { max: 600, min: 0 },
+            items:(1)
         },
     };
 
@@ -166,7 +177,7 @@ function HomePage(){
                                     <li>
                                         <a href={`https://wa.me/${data.whatsapp}`} target="_blank" 
                                         className="flex items-center gap-2 hover:rotate-2 duration-400 transition-transform cursor-pointer">
-                                            <FaWhatsapp className="text-4xl text-secundary-ligth"/>
+                                            <MdOutlineWhatsapp className="text-4xl text-secundary-ligth"/>
                                             <span>{data.whatsapp}</span>
                                         </a>
                                     </li>
@@ -197,7 +208,7 @@ function HomePage(){
                                 <h3>{data["haircut-description"]}</h3>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4 md:grid-cols-1 md:h-96 md:overflow-y-scroll scroll-container">
+                            <div className="flex gap-4 flex-col md:h-96 md:overflow-y-scroll scroll-container">
                                 {data["haircut-list"].length > 0 && data["haircut-list"].map((item, index) => (
                                     <div key={`${item.name}-${index}`}
                                     className="flex items-center gap-4 w-fit md:flex-row-reverse md:w-full md:pr-4">
@@ -216,7 +227,7 @@ function HomePage(){
                 </section>
 
                 {/* cuts */}
-                <section className="relative">
+                <section className="relative" id='portfolio'>
                     <div className="absolute inset-0 pointer-events-none hidden lg:block">
                         <div
                         className="w-full h-full"
@@ -228,16 +239,159 @@ function HomePage(){
                         }}
                         />
                     </div>
-                    <div className="w-full max-w-7xl p-8 mx-auto flex flex-col gap-12 md:flex-row md:justify-between">
-                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+                    <div className="w-full max-w-7xl p-8 py-16 mx-auto flex flex-col gap-12 md:flex-row md:justify-between">
+                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6 mx-auto">
                             {data["haircut-images"].length > 0 && data["haircut-images"].map((item, index) => (
-                                <div key={`${item}-${index}`} className="w-full aspect-[3/4]">
+                                <div key={`${item}-${index}`} className="w-full aspect-[3/4] border-4 border-black hover:scale-125 hover:border-white duration-300 transition-all">
                                     <img src={item} alt={item} className="w-full h-full object-cover"/>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
+
+                 {/* Testimonials */}           
+                <section className="w-full bg-black" id="testimonials">
+                    <div className="w-full max-w-7xl p-8 mx-auto flex flex-col gap-12">
+                        <div>
+                            <h1>{data["testimonials-title"]}</h1>
+                            <h2 className="text-white text-2xl font-impact uppercase">{data["testimonials-description"]}</h2>
+                        </div>
+
+                        <div className="hidden">
+
+                        </div>
+                        
+                        <div className="md:hidden">
+                            <Carousel responsive={responsiveTestimonials}>
+                                {data["testimonials-list"].length > 0 && data["testimonials-list"].map((item, index) => (
+                                    
+                                    <div className="p-2">
+                                        <div key={`${item.name}-${index}`} className="flex flex-col bg-gray-dark rounded-md items-stretch justify-between gap-24 p-8">
+                                            <div className="flex flex-col gap-6">
+                                                <div className="flex items-center gap-2 text-xl">
+                                                    {Array(5).fill(null).map((_, i) => (
+                                                    <div key={i} className="text-secundary-ligth">
+                                                        <IoStarSharp/>
+                                                    </div>
+                                                    ))}
+                                                </div>
+                                                <p className="text-white text-xs">{item.testimonial}</p>
+                                            </div>
+
+                                            <div className="flex items-center gap-2 justify-between">
+                                                <h3 className="text-white font-bold">{item.name}</h3>
+                                                <FaQuoteRight className="text-2xl"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                ))}
+                            </Carousel>
+                         </div>
+
+                         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4">
+                                {data["testimonials-list"].length > 0 && data["testimonials-list"].map((item, index) => (
+                                    
+                                    <div className="p-2">
+                                        <div key={`${item.name}-${index}`} className="flex flex-col bg-gray-dark rounded-md items-stretch justify-between gap-24 p-8 hover:scale-95 duration-200">
+                                            <div className="flex flex-col gap-6">
+                                                <div className="flex items-center gap-2 text-xl">
+                                                    {Array(5).fill(null).map((_, i) => (
+                                                    <div key={i} className="text-secundary-ligth">
+                                                        <IoStarSharp/>
+                                                    </div>
+                                                    ))}
+                                                </div>
+                                                <p className="text-white text-xs">{item.testimonial}</p>
+                                            </div>
+
+                                            <div className="flex items-center gap-2 justify-between">
+                                                <h3 className="text-white font-bold">{item.name}</h3>
+                                                <FaQuoteRight className="text-2xl"/>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                ))}
+                         </div>
+                        
+                    </div>
+                </section>
+
+                {/*where are we*/}
+                <footer className="bg-black text-white w-full pt-64" id="wherearewe">
+                    <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                        {/* Seção de Contato */}
+                        <div className="flex flex-col gap-8">
+                        <h2 className="text-2xl font-semibold">Fale Conosco</h2>
+                        <ul className="flex flex-col gap-4 text-sm">
+                            <li>
+                            <a
+                                href={`https://wa.me/${data.whatsapp}`}
+                                target="_blank"
+                                className="flex items-center gap-3 hover:underline transition"
+                            >
+                                <MdOutlineWhatsapp className="text-lg" />
+                                <span>{data.whatsapp}</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a
+                                href={`tel:${data.phone}`}
+                                target="_blank"
+                                className="flex items-center gap-3 hover:underline transition"
+                            >
+                                <FaPhoneAlt className="text-sm" />
+                                <span>{data.phone}</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a
+                                href={`https://instagram.com/${data.instagram}`}
+                                target="_blank"
+                                className="flex items-center gap-3 hover:underline transition"
+                            >
+                                <FaInstagram className="text-lg" />
+                                <span>@{data.instagram}</span>
+                            </a>
+                            </li>
+                        </ul>
+                        </div>
+
+                        {/* Seção do Mapa */}
+                        <div className="rounded-lg overflow-hidden shadow-lg">
+                        <iframe
+                            className="w-full h-64 sm:h-80"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.477241647173!2d-46.7596497!3d-23.407121500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cefcb1a8aba341%3A0x12515076fac8c7c6!2sLondres%20Barbearia!5e0!3m2!1spt-BR!2sbr!4v1754413347002!5m2!1spt-BR!2sbr"
+                            loading="lazy"
+                            allowFullScreen
+                        ></iframe>
+                        </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="border-t border-gray-800 mt-8"></div>
+
+                    {/* Créditos */}
+                    <div className="text-center text-xs text-gray-500 py-6 px-4">
+                        <p>© {new Date().getFullYear()} Londres Barbearia — Todos os direitos reservados</p>
+                        <p>
+                        Desenvolvido por{" "}
+                        <a
+                            href="https://www.atlhos.com.br/"
+                            target="_blank"
+                            className="hover:underline"
+                        >
+                            Atlhos
+                        </a>
+                        </p>
+                    </div>
+                </footer>
+
+
+
             </main>
         </>
     )
